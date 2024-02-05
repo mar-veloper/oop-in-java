@@ -4,6 +4,12 @@ public class Employee {
     private int baseSalary;
     private int hourlyRate;
 
+    public static int numbersOfEmployees;
+
+    public static void printNumberOfEmployees() {
+        System.out.println(numbersOfEmployees);
+    }
+
     public Employee(int baseSalary) {
        this(baseSalary, 0);
     }
@@ -11,6 +17,7 @@ public class Employee {
     public Employee(int baseSalary, int hourlyRate) {
         this.setBaseSalary(baseSalary);
         this.setHourlyRate(hourlyRate);
+        numbersOfEmployees++;
     }
 
 
