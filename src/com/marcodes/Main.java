@@ -4,10 +4,10 @@ package com.marcodes;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        var textbox1 = new TextBox();
-        System.out.println(textbox1.text);
-
-        var textBox2 = new TextBox();
-        textBox2.setText("Box 2");
+        var employee = new Employee(50_000);
+        int wage =  employee.calculateWage();
+        System.out.println(wage);
     }
+
+
 }
