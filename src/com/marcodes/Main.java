@@ -4,11 +4,12 @@ package com.marcodes;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        var employee = new Employee(50_000);
-        Employee.printNumberOfEmployees();
-        int wage =  employee.calculateWage();
-        System.out.println(wage);
+     UIControl[] controls = {
+             new TextBox(),
+             new CheckBox()
+     };
+
+     for (var control : controls)
+         control.render();
     }
-
-
 }

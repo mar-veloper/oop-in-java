@@ -48,6 +48,10 @@ This is done by Java’s garbage collector.
 
 A programming paradigm that uses a linear or top-down approach.
 
+### Hash 
+
+Numeric value that is calculated based on the address of the object in memory.
+
 ### Problem with _procedural programming_?
 Big classes with several unrelated methods focusing on different concerns and responsibilities. 
 These methods often have several parameters. You often see the same group of parameters repeated across these methods. All you see is procedures calling each other passing arguments around.
@@ -122,6 +126,73 @@ public Employee(int baseSalary) {
 public Employee(int baseSalary, int hourlyRate) {
     this.setBaseSalary(baseSalary);
     this.setHourlyRate(hourlyRate);
+}
+```
+
+
+### 3. Inheritance
+
+A mechanism that allows clas to inherit properties and behaviour from another class.
+
+#### Method Overriding 
+
+Modifying inherited method from a base class
+
+#### Annotation
+
+A label attached to a class member, to give extra information to a compiler.
+
+
+#### Upcasting
+
+Casting an object to one of its **super** types
+
+#### Downcasting
+
+Casting an object one of its **sub** types
+
+```
+public class Main {
+    public static void main(String[] args) {
+
+      // TextBox inherits from UIControl
+      var control = new UIControl(true);
+      var textBox = new TextBox();
+
+      // Upcasting -> TextBox automatically cast as UIControl
+      show(textBox);
+    }
+
+    public static void show(UIControl control) {
+        // At runtime, you only have access to UIControl: control object (Properties and methods)
+        // At compile time you don't have access to TextBox object
+
+        if (control instanceof TextBox) {
+            // We need to implement Downcasting to access properties and methods of TextBox in complile time
+            // Downcasting -> Explicitly cast object to different type
+            // In this case casting control object type from UIControl to TextBox
+
+            var textBox = (TextBox)control;
+            textBox.setText("Downcasting");
+        }
+        
+        System.out.println(control);
+    }
+}
+```
+
+### 4. Polymorphism 
+
+A mechanism that allows an object to take many forms and behave differently. This will help us build extensible applications.
+
+
+#### Abstract Classes and method
+
+Prevent instantiating of a class or method
+
+```
+public abstract class UIControl {
+    public abstract void render();
 }
 ```
 
