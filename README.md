@@ -196,6 +196,88 @@ public abstract class UIControl {
 }
 ```
 
+## Interface 
+
+A type similar to a class, but it only includes method declarations and **no implementation**. 
+It only defines capabilities a class should have.
+
+> _Interface_ defines **WHAT** should be done and _Classes_ defines **HOW** it should be done.
+
+#### Loose coupling
+
+This method removes class dependencies/ tight coupling and avoid re-compiling and re-deploy.
+
+### Dependency Injection
+
+> Classes should not instantiate their dependencies
+
+#### 1. Constructor Injection
+
+```
+public class TaxReport {
+    public TaxCalculator calculator;
+
+    public TaxReport(TaxCalculator calculator) {
+        this.calculator = calculator;
+    }
+
+    public void show() {
+        var tax = calculator.calculcateTax();
+        System.out.println(tax);
+    }
+}
+```
+
+#### 2. Setter Injection
+
+```
+public class TaxReport {
+    public TaxCalculator calculator;
+
+    public void show() {
+        var tax = calculator.calculcateTax();
+        System.out.println(tax);
+    }
+
+    public void setCalculator(TaxCalculator calculator) {
+        this.calculator = calculator;
+    }
+
+}
+```
+
+#### 3. Method Injection 
+
+```
+public class TaxReport {
+    public void show(TaxCalculator calculator) {
+        System.out.println(calculator.calculcateTax());
+    }
+
+}
+```
+
+### Interface Segregation Principle
+
+Principle of dividing big interfaces into smaller ones.
+
+Here's an example:
+```
+public interface UIWidget {
+    void drag();
+    void resize();
+    void render();
+}
+```
+
+Here we can extract each method into its own interface and let UIWidget inherits them all.
+See example below:
+
+```
+public interface UIWidget
+        extends Draggable, Resizable, Renderable {
+}
+```
 
 
 

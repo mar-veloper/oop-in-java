@@ -4,12 +4,8 @@ package com.marcodes;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-     UIControl[] controls = {
-             new TextBox(),
-             new CheckBox()
-     };
-
-     for (var control : controls)
-         control.render();
+        var taxCalculator = new TaxCalculator2019(100_000);
+        var taxReport =  new TaxReport();
+        taxReport.show(taxCalculator);
     }
 }
